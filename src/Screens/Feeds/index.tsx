@@ -20,6 +20,45 @@ interface Props {
 
 const Feeds = ({navigation}: Props) => {
   const {getMyFeed} = useContext(RandomUserDataContext);
-}
+  const [FeedList, setFeedList] = useState<Array<IFeed>>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    setFeedList(getMyFeed(24));
+  }, []);
+
+  return (
+    <ImageFeedList
+      feedList = {FeedList}
+      loading={loading}
+      onRefresh={() => {
+        setLoading(true);
+        setTimeout(() => {
+          setFeedList(getMyFeed(24));
+          setLoading(false);
+        }, 2000);
+      }}
+      onEndReached={() => {
+        setFeedList([...FeedList, ...getMyFeed(24)]);
+      }}
+      onPress={() => {
+        navigation.navigate('FeedListOnly');
+      }}
+    />
+  );
+};
+
+Feeds.navigationOptions = {
+  headerTitle: (
+    <SearchBar>
+      <Input
+        style={{flex: 1, marginLeft: 8, height: 32}}
+        placeholder="검색"
+      />
+      <IconButton iconName="camera" />
+    </SearchBar>
+  ),
+  headerBackTitle: null,
+};
 
 export default Feeds;
