@@ -84,4 +84,5 @@ const Signup = ({navigation}: Props) => {
   );
 };
 
+export default Signup;
 
