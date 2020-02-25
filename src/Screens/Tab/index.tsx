@@ -9,7 +9,7 @@ interface Props {
   onPress?: () => void;
 }
 
-const Tab = () => {
+const Tab = ({ selected, label, imageSource, onPress }: Props) => {
 
 };
 
