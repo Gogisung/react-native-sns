@@ -18,11 +18,43 @@ const Story = Styled.View`
 const StoryBackground = Styled.Image`
   position: absolute;
 `;
+const StoryImage = Styled.Image`
+  width: 100%;
+  text-align: center;
+`;
+const StoryName = Styled.Text`
+  width: 100%;
+  text-align: center;
+`;
 
+interface Props {
+  storyList: Array<IFeed>
+}
 
-const StoryList = () => {
+const StoryList = ({storyList}: Props) => {
   return (
-    <FlatList />
+    <FlatList
+      data={storyList}
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+      keyExtractor={(item, index) => {
+        return `story-${index}`;
+      }}
+      renderItem={({item, index}) => {
+        <StoryContainer>
+          <Story>
+            <StoryBackground
+              source={require('~/Assets/Images/story_background.png')}
+            />
+            <StoryImage
+              source={{ uri: item.photo }}
+              style={{ width: 52, height: 52}}
+            />
+          </Story>
+          <StoryName numberOfLines={1}>{item.name}</StoryName>
+        </StoryContainer>
+      }}
+    />
   );
 };
 
