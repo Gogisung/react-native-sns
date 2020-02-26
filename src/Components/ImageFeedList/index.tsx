@@ -16,7 +16,7 @@ const ImageContainer = Styled.TouchableHighlight`
 
 interface Props {
   id?: number,
-  bounces: boolean;
+  bounces?: boolean;
   scrollEnabled?: boolean;
   feedList: Array<IFeed>;
   loading?: boolean;
