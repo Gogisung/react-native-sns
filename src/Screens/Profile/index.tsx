@@ -104,4 +104,15 @@ const Profile = ({navigation}: Props) => {
   );
 };
 
+interface INaviProps {
+  navigation: NavigationScreenProp<NavigationState>;
+}
+
+Profile.NavigationOptions = ({ navigation }: INaviProps) => {
+  return {
+    title: 'Profile',
+    headerRight: <IconButton iconName="menu" onPress={navigation.openDrawer} />
+  };
+};
+
 export default Profile;
