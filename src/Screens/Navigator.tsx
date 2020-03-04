@@ -19,9 +19,13 @@ import Feeds from '~/Screens/Feeds';
 import FeedListOnly from '~/Screens/FeedListOnly';
 import Upload from '~/Screens/Upload';
 import Notification from '~/Screens/Profile';
+import Profile from '~/Screens/Profile';
 import Drawer from '~/Screens/Drawer';
 
 const LoginNavigator = createStackNavigator({
+  MyFeed,
+});
+const MyFeedTab = createStackNavigator({
   MyFeed,
 });
 const FeedsTab = createStackNavigator({
@@ -31,6 +35,38 @@ const FeedsTab = createStackNavigator({
 const MainTabs = createBottomTabNavigator({
   Feeds: {
     screen: FeedsTab,
+  }
+});
+const UploadTab = createStackNavigator({
+  Upload,
+});
+const ProfileTab = createStackNavigator({
+  Profile,
+});
+const MainTabs = createBottomTabNavigator({
+  MyFeed: {
+    screen: MyFeedTab,
+    naviagtionOptions: {
+      tabBarIcon: ({ focused }: { focused: boolean }) => {
+        <Image
+          source={
+            focused
+              ? require('~/Assets/Images/Tabs/ic_home.png')
+              : require('~/Assets/Images/Tabs/ic_home_outline.png')
+          }
+        />
+      },
+      tabBarOptions: {
+        showLabel: false,
+      },
+    },
+  },
+  Feeds: {
+    screen: FeedsTab,
+    naviagtionOptions: {
+
+    },
+    
   }
 });
 
