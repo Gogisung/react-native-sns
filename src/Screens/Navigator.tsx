@@ -64,11 +64,83 @@ const MainTabs = createBottomTabNavigator({
   Feeds: {
     screen: FeedsTab,
     naviagtionOptions: {
-
+      tabBarIcon: ({ focused }: { focused: boolean }) => (
+        <Image
+          source={
+            focused
+              ? require('~/Assets/Images/Tabs/ic_search.png')
+              : require('~/Assets/Images/Tabs/ic_search_outline.png')
+          }
+        />
+      ),
+      tabBarOptions: {
+        showLabel: false,
+      },
     },
-    
-  }
+  },
+  Upload: {
+    screen: UploadTab,
+    naviagtionOptions: {
+      tabBarIcon: ({ focused }: { focused: boolean }) => {
+        <Image
+          source={
+            focused
+              ? require('~/Assets/Images/Tabs/ic_add.png')
+              : require('~/Assets/Images/Tabs/ic_add_outline.png')
+          }
+        />
+      },
+      tabBarOptions: {
+        showLabel: false,
+      },
+    },
+  },
+  Notification: {
+    screen: Notification,
+    naviagtionOptions: {
+      tabBarIcon: ({ focused }: { focused: boolean}) => (
+        <Image
+          source={
+            focused
+              ? require('~/Assets/Images/Tabs/ic_favorite.png')
+              : require('~/Assets/Images/Tabs/ic_favorite_outline.png')
+          }
+        />
+      ),
+      tabBarOptions: {
+        showLabel: false,
+      },
+    },
+  },
+  Profile: {
+    screen: ProfileTab,
+    naviagtionOptions: {
+      tabBarIcon: ({ focused }: { focused: boolean }) => {
+        <Image
+          source={
+            focused
+              ? require('~/Assets/Images/Tabs/ic_profile.png')
+              : require('~/Assets/Images/Tabs/ic_profile_outline.png')
+          }
+        />
+      },
+      tabBarOptions: {
+        showLabel: false,
+      },
+    },
+  },
 });
+
+const MainNavigator = createDrawerNavigator(
+  {
+    MainTabs,
+  },
+  {
+    drawerPosition: 'right',
+    drawerType: 'slide',
+    contentComponent: Drawer,
+  }
+);
 
 const AppNavigator = createSwitchNavigator(
   {
