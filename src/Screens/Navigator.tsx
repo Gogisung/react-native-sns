@@ -32,11 +32,6 @@ const FeedsTab = createStackNavigator({
   Feeds,
   FeedListOnly,
 });
-const MainTabs = createBottomTabNavigator({
-  Feeds: {
-    screen: FeedsTab,
-  }
-});
 const UploadTab = createStackNavigator({
   Upload,
 });
