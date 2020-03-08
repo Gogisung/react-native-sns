@@ -84,5 +84,9 @@ const Signup = ({navigation}: Props) => {
   );
 };
 
+Signup.navigationOptions = {
+  header: null,
+}
+
 export default Signup;
 
