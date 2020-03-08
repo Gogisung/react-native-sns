@@ -12,11 +12,16 @@ interface Props {
   navigation: NavigationScreenProp<NavigationState>;
 }
 
-const MyFeed = ({navigation}: Props) => {
+const MyFeed = ({ navigation }: Props) => {
   const {getMyFeed} = useContext(RandomUserDataContext);
   const [feedList, setFeedList] = useState<Array<IFeed>>([]);
   const [storyList, setStoryList] = useState<Array<IFeed>>([]);
   const [loading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    setFeedList(getMyFeed());
+    setStoryList(getMyFeed());
+  }, []);
 
   return (
     <FlatList
