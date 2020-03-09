@@ -12,6 +12,7 @@ import Styled from 'styled-components/native';
 import IconButton from '~/Components/IconButton';
 
 const Container = Styled.View``;
+
 const ImageContainer = Styled.View`
   border-top-width: 1px;
   border-bottom-width: 1px;
@@ -19,18 +20,21 @@ const ImageContainer = Styled.View`
   width: ${Dimensions.get('window').width}px;
   height: 400px;
 `;
+
 const FeedImageIndicatorContainer = Styled.View`
   flex: 1;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 `;
+
 const FeedImageIndicator = Styled.View`
   width: 8px;
   height: 8px;
   border-radius: 8px;
   margin: 2px;
 `;
+
 const FeedMenuContainer = Styled.View`
   flex-direction: row;
 `;
@@ -63,8 +67,8 @@ const FeedBody = ({ id, images }: Props) => {
         {images.map((image, index) => (
           <ImageContainer key={`FeedImage-${id}-${index}`}>
             <Image
-              source={{uri: image as string}}
-              style={{width: Dimensions.get('window').width, height: 400}}
+              source={{ uri: image as string }}
+              style={{ width: Dimensions.get('window').width, height: 400 }}
             />
           </ImageContainer>
         ))}
@@ -91,7 +95,7 @@ const FeedBody = ({ id, images }: Props) => {
               })}
           </FeedImageIndicatorContainer>
         </MenuContainer>
-        <MenuContainer style={{justifyContent: 'flex-end'}}>
+        <MenuContainer style={{ justifyContent: 'flex-end' }}>
           <IconButton iconName="bookmark"/>
         </MenuContainer>
       </FeedMenuContainer>

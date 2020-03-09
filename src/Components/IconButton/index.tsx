@@ -39,7 +39,7 @@ const IconButton = ({ iconName, style, onPress }: Props) => {
           onPress();
         }
       }}>
-      <Icon source={imageSource[iconName]}/>
+      <Icon source={imageSource[iconName]} />
     </Container>
   );
 };

@@ -31,7 +31,7 @@ interface Props {
   storyList: Array<IFeed>
 }
 
-const StoryList = ({storyList}: Props) => {
+const StoryList = ({ storyList }: Props) => {
   return (
     <FlatList
       data={storyList}
@@ -40,7 +40,7 @@ const StoryList = ({storyList}: Props) => {
       keyExtractor={(item, index) => {
         return `story-${index}`;
       }}
-      renderItem={({item, index}) => {
+      renderItem={({ item, index }) => {
         <StoryContainer>
           <Story>
             <StoryBackground
