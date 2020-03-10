@@ -66,7 +66,7 @@ const ImageFeedList = ({
           onPress={onPress}>
           <Image
             source={{ uri: item.images[0] }}
-            style={{width: imageWidth, height: imageWidth}}
+            style={ {width: imageWidth, height: imageWidth }}
           />
         </ImageContainer>
       )}

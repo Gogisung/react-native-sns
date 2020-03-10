@@ -20,7 +20,7 @@ interface Props {
 
 const Feeds = ({navigation}: Props) => {
   const {getMyFeed} = useContext(RandomUserDataContext);
-  const [FeedList, setFeedList] = useState<Array<IFeed>>([]);
+  const [feedList, setFeedList] = useState<Array<IFeed>>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const Feeds = ({navigation}: Props) => {
 
   return (
     <ImageFeedList
-      feedList = {FeedList}
+      feedList = {feedList}
       loading={loading}
       onRefresh={() => {
         setLoading(true);
@@ -39,7 +39,7 @@ const Feeds = ({navigation}: Props) => {
         }, 2000);
       }}
       onEndReached={() => {
-        setFeedList([...FeedList, ...getMyFeed(24)]);
+        setFeedList([...feedList, ...getMyFeed(24)]);
       }}
       onPress={() => {
         navigation.navigate('FeedListOnly');
