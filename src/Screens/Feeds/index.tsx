@@ -52,7 +52,7 @@ Feeds.navigationOptions = {
   headerTitle: (
     <SearchBar>
       <Input
-        style={{flex: 1, marginLeft: 8, height: 32}}
+        style={{ flex: 1, marginLeft: 8, height: 32 }}
         placeholder="검색"
       />
       <IconButton iconName="camera" />

@@ -32,7 +32,7 @@ const Tab = ({ selected, label, imageSource, onPress }: Props) => {
   return (
     <Container
       activeOpacity={1}
-      style={{borderColor: color}}
+      style={{ borderColor: color }}
       onPress={onPress}>
         {label && <Label style={{ color: color }}>{label}</Label>}
         {imageSource && <TabImage source={imageSource} />}
